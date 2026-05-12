@@ -13,4 +13,4 @@ Esta aplicación es un gestor de tareas sencillo diseñado para demostrar la imp
 1. Clonar el repositorio.
 2. Instalar las dependencias necesarias:
    ```bash
-   pip install PySide6
+   pip install PySide6  
