@@ -1,25 +1,31 @@
-name: Build App
+name: Compilacion de Aplicacion
 
 on:
   push:
-    branches: [ main ]
+    [cite_start]branches: [ "main" ] # Se activa al subir código [cite: 12]
 
 jobs:
   build:
-    runs-on: windows-latest
+    [cite_start]runs-on: windows-latest # Entorno para el .exe [cite: 16]
+
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v4
+    - uses: actions/checkout@v3 # Descarga tu código
+
+    - name: Configurar Python
+      [cite_start]uses: actions/setup-python@v4 # Prepara Python [cite: 14]
       with:
         python-version: '3.10'
-    - name: Install dependencies
+
+    - name: Instalar librerias
       run: |
-        pip install PySide6 pyinstaller
-    - name: Build EXE
-      run: pyinstaller --onefile --windowed main.py
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+        pip install PySide6 pyinstaller # Instala dependencias [cite: 15]
+
+    - name: Generar Ejecutables
+      run: |
+        pyinstaller --onefile --windowed main.py # Crea el .exe [cite: 4, 16]
+
+    - name: Crear Artifact
+      [cite_start]uses: actions/upload-artifact@v3 # Genera el archivo descargable 
       with:
-        name: Windows-Executable
+        name: Programa-Ejecutable
         path: dist/main.exe
